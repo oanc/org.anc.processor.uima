@@ -1,19 +1,15 @@
 package org.anc.processor.uima
 
-import com.sun.tools.internal.ws.processor.ProcessorException
 import org.anc.conf.AnnotationConfig
 import org.anc.index.api.Index
 import org.anc.processor.uima.i18n.Messages
-
-//**** IProcessor and ProcessorException
-//UimaProcessor is used instead of IProcessor
 import org.anc.tool.uima.UimaProcessor
-//import org.anc.tool.api.IProcessor
-//import org.anc.tool.api.ProcessorException
-
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.xces.graf.io.dom.ResourceHeader
+//import org.anc.tool.api.IProcessor
+//import org.anc.tool.api.ProcessorException
+
 
 import javax.ws.rs.GET
 import javax.ws.rs.QueryParam

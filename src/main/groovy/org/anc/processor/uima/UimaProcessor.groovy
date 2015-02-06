@@ -14,7 +14,7 @@ class UimaProcessor extends AbstractProcessor{
              "f.vc"] as HashSet<String>
 
     public ConllProcessor() {
-        processor = new org.anc.tool.uima.UimaProcessor();
+        processor = new org.anc.tool.uima.UimaProcessor()
         //TODO This path should not be hard coded.
         header = new ResourceHeader(new File("/var/corpora/MASC-3.0.0/resource-header.xml"))
         index = new IndexImpl().loadMasc3Index()
