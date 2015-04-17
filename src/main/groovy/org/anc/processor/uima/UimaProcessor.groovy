@@ -1,23 +1,16 @@
 package org.anc.processor.uima
 
-import org.anc.index.core.IndexImpl
-import org.xces.graf.io.dom.ResourceHeader
-
+import org.anc.processor.Abstract.AbstractProcessor
 import javax.ws.rs.Path
 
 @Path("/uima")
 class UimaProcessor extends AbstractProcessor{
 
-    public static final Set<String> ACCEPTABLE =
-            ["f.penn", "f.s", "f.cb", "f.event", "f.fn", "f.fntok",
-             "f.logical", "f.mpqa", "f.ns", "f.ne", "f.ptb", "f.ptbtok",
-             "f.vc"] as HashSet<String>
-
-    public ConllProcessor() {
+    public UimaProcessor() {
+        super(["f.penn", "f.sentences", "f.biber", "f.c5", "f.c7", "f.cb",
+               "f.content", "f.event", "f.hepple", "f.logical",
+               "f.mpqa", "f.nc", "f.ne", "f.none","f.slate_coref",
+               "f.vc", "f.ptb", "f.ptbtok", "f.fn", "f.fntok", "f.s"] as List<String>)
         processor = new org.anc.tool.uima.UimaProcessor()
-        //TODO This path should not be hard coded.
-        header = new ResourceHeader(new File("/var/corpora/MASC-3.0.0/resource-header.xml"))
-        index = new IndexImpl().loadMasc3Index()
-        setAcceptable(ACCEPTABLE)
     }
 }

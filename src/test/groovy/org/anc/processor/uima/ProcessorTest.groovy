@@ -34,26 +34,23 @@ class ProcessorTest {
         //PASSING ************
         //ONE
         def pass1 = ["f.penn"] as ArrayList<String>
-        assertTrue(processor.validAnnotations(pass1, processor.ACCEPTABLE))
+        assertTrue(processor.validAnnotations(pass1))
 
         //FEW
         def pass2 = ["f.penn", "f.s"] as ArrayList<String>
-        assertTrue(processor.validAnnotations(pass2, processor.ACCEPTABLE))
-
-        //ALL
-        assertTrue(processor.validAnnotations(processor.ACCEPTABLE as ArrayList<String>, processor.ACCEPTABLE))
+        assertTrue(processor.validAnnotations(pass2))
 
         //ALL
         def fail2 = ["thing1", "thing2", "red", "blue"]
-        assertFalse(processor.validAnnotations(fail2, processor.ACCEPTABLE))
+        assertFalse(processor.validAnnotations(fail2))
 
         //ONE WRONG IN LIST OF RIGHT
         def fail3 = ["penn", "f.cb", "f.penn", "f.ne"]
-        assertFalse(processor.validAnnotations(fail3, processor.ACCEPTABLE))
+        assertFalse(processor.validAnnotations(fail3))
 
         //Capitals
         def fail4 = ["F.PENN"]
-        assertFalse(processor.validAnnotations(fail4, processor.ACCEPTABLE))
+        assertFalse(processor.validAnnotations(fail4))
 
     }
     @Test
@@ -64,7 +61,7 @@ class ProcessorTest {
     {
         //EMPTY STRING
         // The empty string should result in ALL annotation types being selected
-        assertTrue("Empty string should return all acceptable annotations.", processor.parseAnnotations("") == ConllProcessor.ACCEPTABLE.toList())
+        assertTrue("Empty string should return all acceptable annotations.", processor.parseAnnotations("") == processor.Acceptable.toList())
 
         //ONE WORD
         List expected = ["f.penn"]
