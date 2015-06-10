@@ -88,14 +88,14 @@ class ProcessorTest {
     @Test
     void testInvalidDocId() {
         Response response = processor.process("penn, s", "Invalid ID")
-        assertTrue response.entity, response.status == 500
+        assertTrue response.entity, response.status == 400
         assertTrue "Wrong error message returned", response.entity == MESSAGES.INVALID_ID
     }
 
     @Test
     void testInvalidAnnotationType() {
         Response response = processor.process("invalid,annotations", "MASC3-0202")
-        assertTrue response.entity, response.status == 500
+        assertTrue response.entity, response.status == 400
         assertTrue "Wrong error message returned.", response.entity == MESSAGES.INVALID_TYPE
     }
 }
