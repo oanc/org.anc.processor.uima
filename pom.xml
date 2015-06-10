@@ -25,7 +25,11 @@
     </build>
 
     <dependencies>
-
+        <dependency>
+            <groupId>org.anc.tool</groupId>
+            <artifactId>tool-api</artifactId>
+            <version>1.0.0</version>
+        </dependency>
         <dependency>
             <groupId>org.anc.tool</groupId>
             <artifactId>tool-api</artifactId>
